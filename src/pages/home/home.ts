@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NgModel } from '@angular/forms';
 
 
 @Component({
@@ -8,20 +9,25 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
   results:Result[];
+query:string;
 
   constructor(public navCtrl: NavController) {
-    this.results=fakeresults;
+    this.results=[];
+    this.query="";
   }
-
+getMovies():void{
+this.results=this.query ? fakeresults:[];
+}
 }
 
 export interface Result{
   title:string;
   author:string;
   date:number;
+  image:string;
 }
 
 const fakeresults: Result[]=[
-  {title:'Back to the futur',author:'toto',date:'1789'},
-  {title:'test',author:'titi',date:'1997'}
+  {title:'Back to the futur',author:'toto',date:1789,image:"https://vignette.wikia.nocookie.net/wikidoublage/images/4/45/BTTF.jpg/revision/latest?cb=20110319225157&path-prefix=fr"},
+  {title:'test',author:'titi',date:1997,image:"https://vignette.wikia.nocookie.net/wikidoublage/images/4/45/BTTF.jpg/revision/latest?cb=20110319225157&path-prefix=fr"}
 ]

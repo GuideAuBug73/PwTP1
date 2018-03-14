@@ -1,22 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Resultat recherche
+      Resultat 
     </ion-title>
-    <ion-searcher>
-      [(ngModel)]=query
-(ionInput)="getMovies()"
-    </ion-searcher>
+    <ion-searchbar
+      [(ngModel)]="query"
+      (ionInput)="getMovies()">
+    </ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Resultat de la recherche
-  <ul>
-    <li *ngFor="let current of result">{{current.title}}</li>
-    <li>
-    </li>
-    <li>
-    </li>
-  </ul>
+  <ion-list>
+  <ion-item *ngIf="results.length<1">
+    Aucun Resultat
+  </ion-item>
+    <ion-item *ngFor="let current of results">
+        <ion-thumbnail item-start>
+            <img [src]="current.image">
+          </ion-thumbnail>
+      <h2>{{current.title}}</h2>
+      <p>{{current.author}}
+      {{current.date}}</p>
+      </ion-item>
+</ion-list>
 </ion-content>
