@@ -1,14 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Resultat recherche
     </ion-title>
+    <ion-searcher>
+      [(ngModel)]=query
+(ionInput)="getMovies()"
+    </ion-searcher>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  Resultat de la recherche
+  <ul>
+    <li *ngFor="let current of result">{{current.title}}</li>
+    <li>
+    </li>
+    <li>
+    </li>
+  </ul>
 </ion-content>
