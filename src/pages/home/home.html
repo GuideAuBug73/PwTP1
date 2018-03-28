@@ -22,6 +22,7 @@
       <h2>{{current.title}}</h2>
       <p>{{current.author}}
       {{current.date}}</p>
+      <button ion-button [navPush]="pushPage" [navParams]="current">Details</button>
       </ion-item>
 </ion-list>
 </ion-content>
