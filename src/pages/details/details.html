@@ -6,15 +6,17 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Details</ion-title>
+    <ion-title>Details: {{result.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content padding>
           <ion-thumbnail item-start>
-              <img [src]="result.image">
+              <img [src]="'https://image.tmdb.org/t/p/w154' + result.poster_path" class="center">
             </ion-thumbnail>
         <h2>{{result.title}}</h2>
-        <p>{{result.author}}
-        {{result.date}}</p>
+        <p>{{result.release_date| date:'d MMM, y'}}</p>
+        <p>Nombre de vote: {{result.vote_count}}<br>
+        Note: {{result.vote_average}}</p>
+        <p>{{result.overview}}</p>
 </ion-content>
